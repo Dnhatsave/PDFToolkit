@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<extension xmlns="http://www.springframework.org/extensions/surf/extensibility">
+	<modules>
+	
+		
+		<module>
+			<id>PDF Toolkit Actions UI - Append</id>
+			<description>Expose the append action doclib action UI</description>
+			<version>1.4.3-SNAPSHOT</version>
+			<auto-deploy>true</auto-deploy>
+			<evaluator type="site.module.evaluator">
+				<params>
+					<sites>.*</sites>
+					<applyForNonSites>false</applyForNonSites>
+					<groups>SiteManager,SiteCollaborator,SiteContributor,SiteConsumer</groups>
+					<groupsRelation>OR</groupsRelation>
+				</params>
+			</evaluator>
+			<configurations>
+				<config evaluator="string-compare" condition="DocLibActions">
+					<actions>
+						<action id="pdf-append"
+							type="javascript"
+							label="actions.pdftoolkit.mergePDF">
+			        		<param name="function">onActionFormDialog</param>
+			        		<param name="itemKind">pdf-action</param>
+			        		<param name="itemId">pdf-append</param>
+			        		<param name="mode">create</param>
+			        		<param name="destination">{node.nodeRef}</param>
+			        		<param name="successMessage">message.pdf-append.success</param>
+			        		<param name="failureMessage">message.pdf-append.failure</param>
+			        		<evaluator>evaluator.pdftoolkit.doclib.action.pdfToolkitMimetype</evaluator>
+						</action>
+					</actions>
+					<actionGroups>
+						<actionGroup id="document-browse">
+							<action index="500" id="pdf-append"/>
+						</actionGroup>
+						<actionGroup id="document-details">
+							<action index="500" id="pdf-append"/>
+						</actionGroup>
+					</actionGroups>
+				</config>
+			</configurations>
+		</module>
+		<module>
+			<id>PDF Toolkit Actions UI - Watermark</id>
+			<description>Expose the watermark action doclib action UI</description>
+			<version>1.2</version>
+			<auto-deploy>true</auto-deploy>
+			<configurations>
+				<config evaluator="string-compare" condition="DocLibActions">
+					<actions>
+						<action id="pdf-watermark"
+							type="javascript"
+							label="actions.pdftoolkit.watermarkPDF">
+			        		<param name="function">onActionFormDialog</param>
+			        		<param name="itemKind">pdf-action</param>
+			        		<param name="itemId">pdf-watermark</param>
+			        		<param name="mode">create</param>
+			        		<param name="destination">{node.nodeRef}</param>
+			        		<param name="successMessage">message.pdf-watermark.success</param>
+			        		<param name="failureMessage">message.pdf-watermark.failure</param>
+			        		<evaluator>evaluator.pdftoolkit.doclib.action.pdfToolkitMimetype</evaluator>
+						</action>
+					</actions>
+					<actionGroups>
+						<actionGroup id="document-browse">
+							<action index="506" id="pdf-watermark"/>
+						</actionGroup>
+						<actionGroup id="document-details">
+							<action index="506" id="pdf-watermark"/>
+						</actionGroup>
+					</actionGroups>
+				</config>
+			</configurations>
+		</module>
+
+
+
+		<module>
+			<id>PDF Toolkit Actions UI - Encryption</id>
+			<description>Expose the encryption action doclib action UI</description>
+			<version>1.4.3-SNAPSHOT</version>
+			<auto-deploy>true</auto-deploy>
+			<evaluator type="site.module.evaluator">
+				<params>
+					<sites>.*</sites>
+					<applyForNonSites>false</applyForNonSites>
+					<groups>SiteManager,SiteCollaborator,SiteContributor,SiteConsumer</groups>
+					<groupsRelation>OR</groupsRelation>
+				</params>
+			</evaluator>
+			<configurations>
+				<config evaluator="string-compare" condition="DocLibActions">
+					<actions>
+						<action id="pdf-encryption"
+							type="javascript"
+							label="actions.pdftoolkit.encryptPDF">
+							<param name="function">onActionFormDialog</param>
+			        		<param name="itemKind">pdf-action</param>
+			        		<param name="itemId">pdf-encryption</param>
+			        		<param name="mode">create</param>
+			        		<param name="destination">{node.nodeRef}</param>
+			        		<param name="successMessage">message.pdf-encryption.success</param>
+			        		<param name="failureMessage">message.pdf-encryption.failure</param>
+			        		<evaluator>evaluator.pdftoolkit.doclib.action.pdfToolkitMimetype</evaluator>
+						</action>
+					</actions>
+					<actionGroups>
+						<actionGroup id="document-browse">
+							<action index="508" id="pdf-encryption"/>
+						</actionGroup>
+						<actionGroup id="document-details">
+							<action index="508" id="pdf-encryption"/>
+						</actionGroup>
+					</actionGroups>
+				</config>
+			</configurations>
+		</module>
+		<module>
+			<id>PDF Toolkit Actions UI - Decryption</id>
+			<description>Expose the decryption action doclib action UI</description>
+			<version>1.4.3-SNAPSHOT</version>
+			<auto-deploy>true</auto-deploy>
+			<evaluator type="site.module.evaluator">
+				<params>
+					<sites>.*</sites>
+					<applyForNonSites>false</applyForNonSites>
+					<groups>SiteManager,SiteCollaborator,SiteContributor,SiteConsumer</groups>
+					<groupsRelation>OR</groupsRelation>
+				</params>
+			</evaluator>
+			<configurations>
+				<config evaluator="string-compare" condition="DocLibActions">
+					<actions>
+						<action id="pdf-decryption"
+							type="javascript"
+							label="actions.pdftoolkit.decryptPDF">
+							<param name="function">onActionFormDialog</param>
+			        		<param name="itemKind">pdf-action</param>
+			        		<param name="itemId">pdf-decryption</param>
+			        		<param name="mode">create</param>
+			        		<param name="destination">{node.nodeRef}</param>
+			        		<param name="successMessage">message.pdf-decryption.success</param>
+			        		<param name="failureMessage">message.pdf-decryption.failure</param>
+			        		<evaluator>evaluator.pdftoolkit.doclib.action.pdfToolkitMimetype</evaluator>
+						</action>
+					</actions>
+					<actionGroups>
+						<actionGroup id="document-browse">
+							<action index="509" id="pdf-decryption"/>
+						</actionGroup>
+						<actionGroup id="document-details">
+							<action index="509" id="pdf-decryption"/>
+						</actionGroup>
+					</actionGroups>
+				</config>
+			</configurations>
+		</module>
+
+		<module>
+			<id>PDF Toolkit Actions UI - Delete Page</id>
+			<description>Expose the delete page action doclib action UI</description>
+			<version>${project.version}</version>
+			<auto-deploy>true</auto-deploy>
+			<evaluator type="site.module.evaluator">
+				<params>
+					<sites>.*</sites>
+					<applyForNonSites>false</applyForNonSites>
+					<groups>SiteManager,SiteCollaborator,SiteContributor,SiteConsumer</groups>
+					<groupsRelation>OR</groupsRelation>
+				</params>
+			</evaluator>
+			<configurations>
+				<config evaluator="string-compare" condition="DocLibActions">
+					<actions>
+						<action id="pdf-delete-page"
+							type="javascript"
+							label="actions.pdftoolkit.deletePDFpages">
+			        		<param name="function">onActionFormDialog</param>
+			        		<param name="itemKind">pdf-action</param>
+			        		<param name="itemId">pdf-delete-page</param>
+			        		<param name="mode">create</param>
+			        		<param name="destination">{node.nodeRef}</param>
+			        		<param name="successMessage">message.pdf-extract-page.success</param>
+			        		<param name="failureMessage">message.pdf-extract-page.failure</param>
+			        		<evaluator>evaluator.pdftoolkit.doclib.action.pdfToolkitMimetype</evaluator>
+						</action>
+					</actions>
+					<actionGroups>
+						<actionGroup id="document-browse">
+							<action index="501" id="pdf-delete-page"/>
+						</actionGroup>
+						<actionGroup id="document-details">
+							<action index="501" id="pdf-delete-page"/>
+						</actionGroup>
+					</actionGroups>
+				</config>
+			</configurations>
+		</module>
+		
+		
+	</modules>
+</extension>
